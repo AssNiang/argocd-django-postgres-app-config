@@ -28,7 +28,8 @@ spec:
             - name: POSTGRES_DB
               value: "postgres"
             - name: DATABASE_URL
-              value: psql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/$(POSTGRES_DB) #postgres here must match the PostgreSQL service name you created earlier
+              # value: psql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/$(POSTGRES_DB) #postgres here must match the PostgreSQL service name you created earlier
+              value: postgres-service
 
 ---
 # START Service
@@ -46,5 +47,5 @@ spec:
     - port: 80 #port that the service exposes
       targetPort: 8000 #port that the app is receiving requests from via the pod
       nodePort: 30000
-      
+
 # END SERVICE

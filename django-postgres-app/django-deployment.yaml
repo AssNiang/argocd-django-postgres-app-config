@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-deployment
+  labels:
+    app: django-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: django-app
+  template:
+    metadata:
+      labels:
+        name: django-app
+    spec:
+      containers:
+        - name: django-app
+          image: gals3nb0y/devops_project:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "postgres"
+            - name: DATABASE_URL
+              value: psql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/$(POSTGRES_DB) #postgres here must match the PostgreSQL service name you created earlier
+
+---
+# START Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-app-service
+  labels:
+    app: django-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80 #port that the service exposes
+      targetPort: 8000 #port that the app is receiving requests from via the pod
+  selector:
+    name: django-app
+# END SERVICE

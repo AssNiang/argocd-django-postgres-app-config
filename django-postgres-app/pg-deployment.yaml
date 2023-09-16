@@ -39,13 +39,13 @@ spec:
             #     configMapKeyRef:
             #       name: postgres-configmap
             #       key: database_url
-          volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: postgres-volume-mount
-      volumes:
-        - name: postgres-volume-mount
-          persistentVolumeClaim:
-            claimName: postgres-pv-claim
+      #     volumeMounts:
+      #       - mountPath: /var/lib/postgresql/data
+      #         name: postgres-volume-mount
+      # volumes:
+      #   - name: postgres-volume-mount
+      #     persistentVolumeClaim:
+      #       claimName: postgres-pv-claim
 ---
 # START Service
 apiVersion: v1

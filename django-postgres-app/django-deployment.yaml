@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
         - name: django-app
-          # image: gals3nb0y/devops_project:latest
           image: sas792/devops-django:4
           imagePullPolicy: Always
           ports:
@@ -29,7 +28,6 @@ spec:
             - name: POSTGRES_DB
               value: "postgres"
             - name: DATABASE_URL
-              # value: psql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/$(POSTGRES_DB) #postgres here must match the PostgreSQL service name you created earlier
               valueFrom:
                 configMapKeyRef:
                   name: postgres-configmap

@@ -1,12 +1,13 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-	name: django-ingress
+  name: django-ingress
 spec:
-	rules:
-	- host: devops-dic2.git
-		http: # means that incoming request gets forwarded to the internal service
-			path:
-			- backend:
-					serviceName: djnago-app-service
-					servicePort: 80
+  rules:
+    - host: devops-dic2-git.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: djnago-app-service
+              servicePort: 8001

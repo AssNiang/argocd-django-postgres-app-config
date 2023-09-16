@@ -1,13 +1,31 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: django-ingress
+# spec:
+#   rules:
+#     - host: devops-dic2-git.com
+#       http:
+#         paths:
+#           - path: /
+#             backend:
+#               serviceName: django-app-service
+#               servicePort: 8001
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: django-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx-example
   rules:
-    - host: devops-dic2-git.com
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: django-app-service
-              servicePort: 8001
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: django-app-service
+            port:
+              number: 8081

@@ -43,7 +43,7 @@ spec:
   selector:
     name: django-app
   ports:
-    - port: 80 #port that the service exposes
+    - port: 8080 #port that the service exposes
       targetPort: 8000 #port that the app is receiving requests from via the pod
-
+      nodePort: 31000
 # END SERVICE

@@ -18,7 +18,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx-example
   rules:
     - host: devops-dic2-git.com
       http:
@@ -29,4 +28,4 @@ spec:
               service:
                 name: djnago-app-service
                 port:
-                  number: 8001
+                  number: 80

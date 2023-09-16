@@ -30,7 +30,11 @@ spec:
               value: "postgres"
             - name: DATABASE_URL
               # value: psql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/$(POSTGRES_DB) #postgres here must match the PostgreSQL service name you created earlier
-              value: postgres-service
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: database_url
+
 
 ---
 # START Service

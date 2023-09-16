@@ -40,7 +40,6 @@ metadata:
   labels:
     app: django-app
 spec:
-  type: NodePort
   selector:
     name: django-app
   ports:

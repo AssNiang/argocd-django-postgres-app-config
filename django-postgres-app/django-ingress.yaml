@@ -9,5 +9,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: djnago-app-service
+              serviceName: django-app-service
               servicePort: 8001

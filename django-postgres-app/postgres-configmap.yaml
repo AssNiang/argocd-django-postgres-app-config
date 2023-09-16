@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: postgres-configmap
 data:
-  database_url: pdb
+  database_url: db

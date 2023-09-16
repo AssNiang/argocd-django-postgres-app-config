@@ -17,7 +17,7 @@ spec:
       containers:
         - name: django-app
           # image: gals3nb0y/devops_project:latest
-          image: sas792/devops-django:3
+          image: sas792/devops-django:4
           imagePullPolicy: Always
           ports:
             - containerPort: 8000

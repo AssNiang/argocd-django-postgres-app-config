@@ -22,26 +22,13 @@ spec:
             - containerPort: 8000
           env:
             - name: POSTGRES_USER
-              valueFrom: 
-                secretKeyRef:
-                  name: postgres-secret
-                  key: postgres_user
+              value: "postgres"
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: postgres_password
+              value: "postgres"
             - name: POSTGRES_DB
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: postgres_db
+              value: "postgres"
             - name: DATABASE_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-configmap
-                  key: database_url
-
+              value: postgres-service
 
 ---
 # START Service

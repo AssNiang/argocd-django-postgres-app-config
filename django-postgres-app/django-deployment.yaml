@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: django-app
-          image: sas792/devops-django:4
+          image: sas792/devops-django:1
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
@@ -32,10 +32,8 @@ spec:
                 configMapKeyRef:
                   name: postgres-configmap
                   key: database_url
-
-
----
 # START Service
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -48,5 +46,8 @@ spec:
   ports:
     - port: 8000 #port that the service exposes
       targetPort: 8000 #port that the app is receiving requests from via the pod
-
+  template:
+    spec:
+      containers:
+        - image: sas792/devops-django:1
 # END SERVICE

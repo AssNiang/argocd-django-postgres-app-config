@@ -34,11 +34,11 @@ metadata:
   labels:
     app: postgres
 spec:
-  type: ClusterIP
-  ports:
-    - port: 5432
-      targetPort: 5432
-      protocol: TCP
   selector:
     name: postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+      
 # END SERVICE

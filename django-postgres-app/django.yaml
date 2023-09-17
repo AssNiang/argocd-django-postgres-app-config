@@ -29,7 +29,7 @@ spec:
               value: "postgres"
             - name: DATABASE_URL
               valueFrom:
-                configMapKey:
+                configMapKeyRef:
                   name: postgres-configmap
                   key: database_url
 ---

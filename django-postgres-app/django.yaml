@@ -29,7 +29,6 @@ spec:
               value: "postgres"
             - name: DATABASE_URL
               value: postgres-service
-
 ---
 # START Service
 apiVersion: v1
@@ -45,5 +44,4 @@ spec:
     - protocol: TCP
       port: 8000 #port that the service exposes
       targetPort: 8000 #port that the app is receiving requests from via the pod
-
 # END SERVICE

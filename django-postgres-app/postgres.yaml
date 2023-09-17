@@ -24,7 +24,6 @@ spec:
               value: "postgres"
             - name: POSTGRES_DB
               value: "postgres"
-
 ---
 # START Service
 apiVersion: v1
@@ -39,6 +38,5 @@ spec:
   ports:
     - protocol: TCP
       port: 5432
-      targetPort: 5432
-      
+      targetPort: 5432 
 # END SERVICE

@@ -9,7 +9,6 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
   - Migrate :
 """bash
 kubectl exec -it <pod_name> -n django-postgres-app -- bin/bash
-# then
 python manage.py migrate
 """ 
   - Enter the following command in the terminal :
